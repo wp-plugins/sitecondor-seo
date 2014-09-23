@@ -7,6 +7,17 @@
  * @link      https://www.sitecondor.com/wordpress-plugin
  * @copyright 2014 Noctual, LLC
  *
+ * @wordpress-plugin
+ * Plugin Name:       SiteCondor SEO
+ * Plugin URI:        https://www.sitecondor.com/wordpress-plugin
+ * Description:       SiteCondor SEO plugin
+ * Version:           1.0.1
+ * Author:            Sebastián Brocher and Judd Lyon
+ * Author URI:        http://blog.sitecondor.com
+ * Text Domain:       sitecondor-seo
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
