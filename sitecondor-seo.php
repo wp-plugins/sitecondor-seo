@@ -11,7 +11,7 @@
  * Plugin Name:       SiteCondor SEO
  * Plugin URI:        https://www.sitecondor.com/wordpress-plugin
  * Description:       SiteCondor SEO plugin
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Sebastián Brocher and Judd Lyon
  * Author URI:        http://blog.sitecondor.com
  * Text Domain:       sitecondor-seo
