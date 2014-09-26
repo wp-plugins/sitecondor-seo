@@ -1,0 +1,87 @@
+.sitecondor-logo {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+h2.nav-tab-wrapper { margin-bottom: 15px; }
+
+.form-table { 
+  width: auto; 
+  margin-top: 25px
+}
+
+.form-table th { 
+  width: auto; 
+  padding: 5px 15px 0 0;
+  margin-bottom: 12px;
+}
+
+.form-table td { 
+  padding: 0 0 12px 0; 
+}
+
+.form-table td input { width: 220px; }
+
+.dashicons {
+  color: #c2ac8d;
+  margin-top: 2px;
+}
+
+.reports-domain {
+  font-size: 20px;
+  color: #c2ac8d;
+}
+
+.sc-table {
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.widefat.sc-table tr th {
+  font-size: 12px;    
+  background-color: #EEE8E0;
+  border: 1px solid #fff;  
+  padding: 5px;
+  font-weight: 600;
+}
+
+.widefat.sc-table tr td {
+  font-size: 12px;  
+  border: 1px solid #e5e5e5;
+  padding: 5px;  
+}
+
+.sc-settings-table { border: 1px solid #e5e5e5; }
+
+.sc-settings-table tr td,
+.sc-settings-table tr th {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.sc-settings-table tr th { border-right: 1px solid #e5e5e5; }
+
+.digit { text-align: right; }
+
+#my-chart {
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.chart-wrap {
+  width: 66%;
+  margin-top: 20px;
+}
+
+.legend {
+  width: 20%;
+  float: right;
+}
+
+.legend span {
+  display: block;
+  padding: 5px 10px;
+  font-weight: 600;
+  border-bottom: 1px solid;
+}
