@@ -1,5 +1,14 @@
-(function ( $ ) {
+(function ($) {
 	"use strict";
+
+  // tooltips
+  $(function() {
+    $('.sc-table').tooltip();
+
+    $('.sc-table th a, .sc-table a.inline-tooltip').click(function() {
+      return false;
+    });
+  });
 
   // LEGEND: https://github.com/bebraw/Chart.js.legend
   function legend(parent, data) {
