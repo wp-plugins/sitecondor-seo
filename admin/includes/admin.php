@@ -225,7 +225,7 @@
 			# if using proxy, you should also provide proxyHostname and proxyPort attributes
 			'useProxy' => false,
 			# limit the maximum # of resources to fetch for the job
-			'maxResources' => 75	
+			'maxResources' => ""
 		);
 
 		$api_call = sc_call_sitecondor_api('POST', $url, $data);
@@ -295,8 +295,15 @@
 	 */	
 	function sc_call_sitecondor_api( $method, $url, $data = false ) {
 
-		// $base_url = 'http://0.0.0.0:3000/api/v1/';
-    $base_url = 'https://www.sitecondor.com/api/v1/';
+		$dev = false;
+
+		if($dev) {
+			$base_url = 'http://0.0.0.0:3000/api/v1/';			
+    	$sslverify = false;
+    } else {
+    	$base_url = 'https://www.sitecondor.com/api/v1/';
+    	$sslverify = true;
+    }
 
   	$args = array(
 			'timeout' => 15,
@@ -309,7 +316,7 @@
 			'cookies' => array(),
 	    'compress'    => false,
 	    'decompress'  => true,
-	    'sslverify'   => true,
+	    'sslverify'   => $sslverify,
 	    'stream'      => false,
 	    'filename'    => null					
 		);

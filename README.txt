@@ -5,7 +5,7 @@ Visit us at: https://www.sitecondor.com/
 Tags: seo, SEO, SiteCondor, SiteCondor SEO, crawl, plugin, tool, site, website, audit, optimize, visualize, google, yahoo, bing, result, ranking, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, meta, WordPress SEO, canonical, nofollow, noindex, keywords, meta keywords, description pages, images, javscript, js, css, pdf, 404, 301, 302, redirect, error, titles, links, headings, H1, urls, structured data, schema.org, microdata, authorship, publisher, Twitter Card, Open Graph, meta robots, site map, url structure, link matrix, site graph, webmaster tools, google webmaster tools, seo pack, page
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,11 @@ Absolutely. Keep in mind crawls under the free account are limited to 75 resourc
 7. URL Structure
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Added Report trends
+* Better Reports UI & tooltips
 
 = 1.0.3 = 
 
