@@ -171,7 +171,7 @@
                       </div>
                     </div>
 
-                    <?
+                    <?php
                     echo '<div class="chart-wrap"><canvas id="my-chart"></canvas></div>';
                   } else {
                     echo "<p>This section will include charts when at least two weekly crawls have finished running. Click on <em>Overview</em> below to view results.</p>";
