@@ -57,7 +57,7 @@
     // if there has been no change between previous and current count, display a dash
     if($previous_count == $current_count) {
       // no change - display a dash
-      return $result . "<div class='trend-icon'><span class='dashicons dashicons-minus'></span></div>";  
+      return $result . "<br/><div class='trend-icon'><span class='dashicons dashicons-minus'></span></div>";  
     }
 
     // we have a change between previous and current count, display change percent and color indicator
@@ -102,7 +102,7 @@
     $absolute_percent = abs($percent);
 
     // return the whole enchilada
-    return $result . "<div class='trend-icon " . $color_class . "'><span class='dashicons ". $arrow_class . "'></span> " . $absolute_percent . "%</div>";    
+    return $result . "<br/><div class='trend-icon " . $color_class . "'><span class='dashicons ". $arrow_class . "'></span> " . $absolute_percent . "%</div>";    
   }
 ?>
 
@@ -130,7 +130,48 @@
                   echo "<p>Sorry, you don't have any Reports yet.</p>";
                 } else {
                   if ( count( array_filter( $jobs, "sc_is_job_ready_for_charting" ) ) > 1 ) {
-                    echo '<div id="legend"></div>';
+                    ?>
+                    
+                    <div id="legend" class="legend">
+
+                      <span class="title" style="color: rgb(64, 127, 0); background-color: rgba(64, 127, 0, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="resources" checked>Resources</input>
+                      </span>
+                      <span class="title" style="color: rgb(102, 204, 0); background-color: rgba(102, 204, 0, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="pages" checked>Pages</input>
+                      </span>
+                      <span class="title" style="color: rgb(204, 20, 20); background-color: rgba(204, 20, 20, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="404s" checked>404s</input>
+                      </span>
+                      <span class="title" style="color: rgb(255, 127, 70); background-color: rgba(255, 127, 70, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="redirects" checked>Redirects</input>
+                      </span>
+                      <span class="title" style="color: rgb(255, 51, 153); background-color: rgba(255, 51, 153, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="other-errors" checked>Other Errors</input>
+                      </span>
+                      <span class="title" style="color: rgb(224, 224, 0); background-color: rgba(224, 224, 0, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="missing-titles" checked>Missing Titles</input>
+                      </span>
+                      <span class="title" style="color: rgb(204, 51, 204); background-color: rgba(204, 51, 204, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="missing-h1s" checked>Missing H1s</input>
+                      </span>
+                      <span class="title" style="color: rgb(204, 80, 0); background-color: rgba(204, 80, 0, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="missing-meta-descriptions" checked>Missing Meta Descriptions</input>
+                      </span>
+                      <span class="title" style="color: rgb(204, 102, 102); background-color: rgba(204, 102, 102, 0.2);">
+                        <input class="refresh-chart" type="checkbox" id="missing-image-alt" checked>Missing Image Alternate Text</input>
+                      </span>
+
+                      <br/>
+                      <div class="upgrade">
+                      A premium version of this plugin with more features and crawling credits is coming soon:<br/><br/>
+                      <strong>
+                      <a href="https://www.sitecondor.com/wordpress-upgrade/" target="_blank">Click here for an exclusive early bird special discount</a>
+                      </strong>
+                      </div>
+                    </div>
+
+                    <?
                     echo '<div class="chart-wrap"><canvas id="my-chart"></canvas></div>';
                   } else {
                     echo "<p>This section will include charts when at least two weekly crawls have finished running. Click on <em>Overview</em> below to view results.</p>";
@@ -282,21 +323,55 @@
 
   <script type="text/javascript">
     jQuery(function($) {   
-      $.chartJS(
-        <?php echo json_encode( $labelsArr ); ?>, 
-        [
-          { label: 'Resources', data: <?php echo json_encode( $resourcesAllArr ); ?> }, 
-          { label: 'Pages', data: <?php echo json_encode( $resourcesPagesArr ); ?> },
-          { label: '404s', data: <?php echo json_encode( $resources404Arr ); ?> },
-          { label: 'Redirects', data: <?php echo json_encode( $resourcesRedirectsArr ); ?> },
-          { label: 'Other Errors', data: <?php echo json_encode( $resourcesOtherErrorsArr ); ?> },
-          { label: 'Missing Titles', data: <?php echo json_encode( $titlesMissingArr ); ?> },
-          { label: 'Missing H1s', data: <?php echo json_encode( $headingsMissingArr ); ?> },
-          { label: 'Missing Meta Descriptions', data: <?php echo json_encode( $metaDescriptionsMissingArr ); ?> },
-          { label: 'Missing Image Alternate Text', data: <?php echo json_encode( $imagesMissingAltArr ); ?> }
-        ]
-      );
+
+      // refresh chart
+      $.refreshChart = function() {
+
+        var datasets = [];
+        
+        if($('#resources').is(':checked')) {
+          datasets.push({ label: 'Resources', data: <?php echo json_encode( $resourcesAllArr ); ?> });
+        }
+        if($('#pages').is(':checked')) {
+          datasets.push({ label: 'Pages', data: <?php echo json_encode( $resourcesPagesArr ); ?> });
+        }
+        if($('#404s').is(':checked')) {
+          datasets.push({ label: '404s', data: <?php echo json_encode( $resources404Arr ); ?> }); 
+        }
+        if($('#redirects').is(':checked')) {
+          datasets.push({ label: 'Redirects', data: <?php echo json_encode( $resourcesRedirectsArr ); ?> });          
+        }        
+        if($('#other-errors').is(':checked')) {
+          datasets.push({ label: 'Other Errors', data: <?php echo json_encode( $resourcesOtherErrorsArr ); ?> });  
+        }       
+        if($('#missing-titles').is(':checked')) {
+          datasets.push({ label: 'Missing Titles', data: <?php echo json_encode( $titlesMissingArr ); ?> });  
+        }
+        if($('#missing-h1s').is(':checked')) {
+          datasets.push({ label: 'Missing H1s', data: <?php echo json_encode( $headingsMissingArr ); ?> });  
+        }
+        if($('#missing-meta-descriptions').is(':checked')) {
+          datasets.push({ label: 'Missing Meta Descriptions', data: <?php echo json_encode( $metaDescriptionsMissingArr ); ?> });  
+        }           
+        if($('#missing-image-alt').is(':checked')) {
+          datasets.push({ label: 'Missing Image Alternate Text', data: <?php echo json_encode( $imagesMissingAltArr ); ?> });   
+        }                           
+
+        $.chartJS(
+          <?php echo json_encode( $labelsArr ); ?>, 
+          datasets
+        );
+      }
+
+      // refresh chart when one of the legend checkboxes changes status
+      $('.refresh-chart').on('change', function(event) {
+        $.refreshChart();
+      });
+
+      // refresh chart on load
+      $.refreshChart();
     });
+
   </script>    
 
 <?php } // count array_filter $jobs sc_is_job_ready_for_charting ?>
