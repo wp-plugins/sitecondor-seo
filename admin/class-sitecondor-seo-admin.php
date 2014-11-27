@@ -119,6 +119,7 @@ class SiteCondor_SEO_Admin {
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
 			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), SiteCondor_SEO::VERSION );
+			wp_enqueue_style( $this->plugin_slug .'-admin-tooltips', plugins_url( 'assets/css/tooltips.css', __FILE__ ), array(), SiteCondor_SEO::VERSION );			
 		}
 
 	}
@@ -139,7 +140,7 @@ class SiteCondor_SEO_Admin {
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
 			wp_enqueue_script( $this->plugin_slug . '-admin-chart-script', plugins_url( 'assets/js/chart.min.js', __FILE__ ), array(), SiteCondor_SEO::VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), SiteCondor_SEO::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip' ), SiteCondor_SEO::VERSION );
 		}
 
 	}

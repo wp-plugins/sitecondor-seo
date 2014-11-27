@@ -2,11 +2,10 @@
 
 Contributors: sbrocher, juddlyon
 Visit us at: https://www.sitecondor.com/
-Tags: seo, SEO, SiteCondor, SiteCondor SEO, crawl, tool, site, website, audit, optimize, visualize, google, yahoo, bing, result, ranking, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, meta, WordPress SEO, canonical, nofollow, noindex, keywords, meta keywords, description pages, images, javscript, js, css, pdf, 404, 301, 302, redirect, error, titles, links, headings, H1, urls, structured data, schema.org, microdata, authorship, publisher, Twitter Card, Open Graph, meta robots, site map, url structure, link matrix, site graph, webmaster tools, google webmaster tools, seo pack
-
+Tags: seo, SEO, SiteCondor, SiteCondor SEO, crawl, plugin, tool, site, website, audit, optimize, visualize, google, yahoo, bing, result, ranking, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, meta, WordPress SEO, canonical, nofollow, noindex, keywords, meta keywords, description pages, images, javscript, js, css, pdf, 404, 301, 302, redirect, error, titles, links, headings, H1, urls, structured data, schema.org, microdata, authorship, publisher, Twitter Card, Open Graph, meta robots, site map, url structure, link matrix, site graph, webmaster tools, google webmaster tools, seo pack, page
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,12 +13,12 @@ Improve your on-page SEO, optimize content quality, and keep your site healthy.
 
 == Description ==
 
-The SiteCondor SEO plugin delivers weekly crawl reports that show you how search engines see your WordPress site. It's the perfect compliment to [WordPress SEO by Yoast](https://wordpress.org/plugins/wordpress-seo/) or [All-in-one SEO Pack](https://wordpress.org/plugins/all-in-one-seo-pack/).  
+The <a href="https://www.sitecondor.com" target="_blank">SiteCondor</a> SEO plugin delivers weekly crawl reports that show you how search engines see your WordPress site, highlighting errors and optimization opportunities. It's the perfect complement to *WordPress SEO by Yoast* or *All-in-one SEO Pack*.  
 
 SiteCondor SEO includes the following essential metrics:
 
 - Resources and Pages: see the size and scope of your site
-- Broken Links: the 404 count helps you find and fix broken links
+- Broken Links: find and fix broken links with detailed 404 reports
 - Redirects: view and verify 301 and 302 redirects
 - Missing Page Titles
 - Missing Meta Descriptions
@@ -93,13 +92,36 @@ Absolutely. Keep in mind crawls under the free account are limited to 75 resourc
 == Screenshots ==
 
 1. SiteCondor SEO Reports and Stats
-2. Job Settings
-3. Job Overview
-4. Schedule a Job
-5. Site Graph visualization
-
+2. Job Overview
+3. Link Matrix
+4. Site Graph
+5. Site Map
+6. Page Overview
+7. URL Structure
 
 == Changelog ==
+
+= 1.2.0 =
+
+* Added ability to choose which Reports datasets are included in the charts
+* Other UI improvements
+
+= 1.1.0 =
+
+* Added Report trends
+* Better Reports UI & tooltips
+
+= 1.0.3 = 
+
+* Added new screenshots
+
+= 1.0.2 = 
+
+* Updated readme
+
+= 1.0.1 =
+
+* Fixed plugin install issue
 
 = 1.0 =
 
