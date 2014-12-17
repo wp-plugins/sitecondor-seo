@@ -5,7 +5,7 @@ Visit us at: https://www.sitecondor.com/
 Tags: seo, SEO, SiteCondor, SiteCondor SEO, crawl, plugin, tool, site, website, audit, optimize, visualize, google, yahoo, bing, result, ranking, search engine optimization, xml sitemap, xml sitemaps, google sitemap, sitemap, sitemaps, meta, WordPress SEO, canonical, nofollow, noindex, keywords, meta keywords, description pages, images, javscript, js, css, pdf, 404, 301, 302, redirect, error, titles, links, headings, H1, urls, structured data, schema.org, microdata, authorship, publisher, Twitter Card, Open Graph, meta robots, site map, url structure, link matrix, site graph, webmaster tools, google webmaster tools, seo pack, page
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Improve your on-page SEO, optimize content quality, and keep your site healthy.
 
 == Description ==
 
-The <a href="https://www.sitecondor.com" target="_blank">SiteCondor</a> SEO plugin delivers weekly crawl reports that show you how search engines see your WordPress site, highlighting errors and optimization opportunities. It's the perfect complement to *WordPress SEO by Yoast* or *All-in-one SEO Pack*.  
+The <a href="https://www.sitecondor.com" target="_blank">SiteCondor</a> SEO plugin delivers weekly crawl reports that show you how search engines see your WordPress site, and prioritized recommendations highlighting errors and optimization opportunities. It's the perfect complement to *WordPress SEO by Yoast* or *All-in-one SEO Pack*.  
 
 SiteCondor SEO includes the following essential metrics:
 
@@ -92,14 +92,19 @@ Absolutely. Keep in mind crawls under the free account are limited to 75 resourc
 == Screenshots ==
 
 1. SiteCondor SEO Reports and Stats
-2. Job Overview
-3. Link Matrix
-4. Site Graph
-5. Site Map
-6. Page Overview
-7. URL Structure
+2. SiteCondor SEO Recommendations
+3. Job Overview
+4. Link Matrix
+5. Site Graph
+6. Site Map
+7. Page Overview
+8. URL Structure
 
 == Changelog ==
+
+= 1.3.0 =
+
+* Added Recommendations
 
 = 1.2.1 =
 

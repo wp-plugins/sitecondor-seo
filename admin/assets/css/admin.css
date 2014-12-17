@@ -140,3 +140,60 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
 .sc-table .trend-icon {
   font-size: 10px;
 }
+
+.sc-recommendation-table {
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.sc-recommendation-table h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+.sc-recommendation-table td { 
+  width: 50%; 
+  vertical-align: top;
+}
+
+.sc-recommendation-table tr#priority-critical th {
+  background-color: #f22;
+  color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.sc-recommendation-table tr#priority-medium th {
+  background-color: #ffb122;
+  color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.sc-recommendation-table tr#priority-low th { 
+  background-color: #ff3;
+  color: #555;
+  border: 1px solid #e5e5e5;  
+  padding: 10px;  
+}
+
+.sc-recommendation-table .dashicons {
+  margin-top: 0;
+  padding-left: 3px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.sc-recommendation-table .dashicons-arrow-up-alt2 {
+  color: #0074a2;
+}
+
+.sc-recommendation-table .dashicons-arrow-down-alt2 {
+ color: #0074a2;
+}
+
+.sc-recommendation-table tr td table {
+  margin-top: 10px;
+}
