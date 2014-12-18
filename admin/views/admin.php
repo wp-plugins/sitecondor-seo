@@ -29,13 +29,17 @@
     <a href="https://www.sitecondor.com" target="_blank" class="sitecondor-logo">
       <img src="<?php echo plugins_url( 'assets/sitecondor-logo.png', dirname( dirname( __FILE__ ) ) ); ?>">
     </a>            
-		<a href="?page=sitecondor-seo&tab=reports" class="nav-tab <?php if ($active_tab == 'reports') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-chart-bar"></span> Reports</a>
+    <a href="?page=sitecondor-seo&tab=reports" class="nav-tab <?php if ($active_tab == 'reports') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-chart-bar"></span> Reports</a>    
+		<a href="?page=sitecondor-seo&tab=recommendations" class="nav-tab <?php if ($active_tab == 'recommendations') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-clipboard"></span> Recommendations</a>
 		<a href="?page=sitecondor-seo&tab=settings" class="nav-tab <?php if ($active_tab == 'settings') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-admin-settings"></span> Settings</a>
 	</h2>
 
   <!-- load inc based on tab -->
   <?php 
     switch ( $active_tab ) {
+      case 'recommendations':
+        require_once( plugin_dir_path( dirname( __FILE__ ) ) . 'views/_tab-recommendations.php' );
+        break;      
       case 'reports':
     		require_once( plugin_dir_path( dirname( __FILE__ ) ) . 'views/_tab-reports.php' );
       	break;
