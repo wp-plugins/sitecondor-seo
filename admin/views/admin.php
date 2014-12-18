@@ -30,7 +30,7 @@
       <img src="<?php echo plugins_url( 'assets/sitecondor-logo.png', dirname( dirname( __FILE__ ) ) ); ?>">
     </a>            
     <a href="?page=sitecondor-seo&tab=reports" class="nav-tab <?php if ($active_tab == 'reports') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-chart-bar"></span> Reports</a>    
-		<a href="?page=sitecondor-seo&tab=recommendations" class="nav-tab <?php if ($active_tab == 'recommendations') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-hammer"></span> Recommendations</a>
+		<a href="?page=sitecondor-seo&tab=recommendations" class="nav-tab <?php if ($active_tab == 'recommendations') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-clipboard"></span> Recommendations</a>
 		<a href="?page=sitecondor-seo&tab=settings" class="nav-tab <?php if ($active_tab == 'settings') { echo 'nav-tab-active'; } ?>"><span class="dashicons dashicons-admin-settings"></span> Settings</a>
 	</h2>
 

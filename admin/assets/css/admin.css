@@ -16,9 +16,7 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
   margin-bottom: 12px;
 }
 
-.form-table td { 
-  padding: 0 0 12px 0; 
-}
+.form-table td { padding: 0 0 12px 0; }
 
 .form-table td input { width: 220px; }
 
@@ -123,13 +121,9 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
   color: red; 
 }
 
-.sc-table .dashicons-arrow-up {
-  margin-top: 4px;  
-}
+.sc-table .dashicons-arrow-up { margin-top: 4px; }
 
-.sc-table .dashicons-arrow-down {
-  margin-top: 3px;  
-}
+.sc-table .dashicons-arrow-down { margin-top: 3px; }
 
 .sc-table .trend-icon .dashicons {
   font-size: 14px;
@@ -137,9 +131,7 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
   height: 10px;
 }
 
-.sc-table .trend-icon {
-  font-size: 10px;
-}
+.sc-table .trend-icon { font-size: 10px; }
 
 .sc-recommendation-table {
   margin-top: 15px;
@@ -157,8 +149,23 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
   vertical-align: top;
 }
 
+.widefat.sc-table tr td .url-list a { border: none; }
+
+.widefat.sc-table .url-list li { 
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0;
+  padding: 3px 0;
+}
+
 .sc-recommendation-table tr#priority-critical th {
   background-color: #f22;
+  background-image: -moz-linear-gradient(top, #f00, #f55);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f00), to(#f55));
+  background-image: -webkit-linear-gradient(top, #f00, #f55);
+  background-image: -o-linear-gradient(top, #f00, #f55);
+  background-image: linear-gradient(to bottom, #f00, #f55);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ffff0000', endColorstr = '#ffff5555', GradientType = 0);  
   color: #fff;
   border: 1px solid #e5e5e5;
   padding: 10px;
@@ -166,6 +173,13 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
 
 .sc-recommendation-table tr#priority-medium th {
   background-color: #ffb122;
+  background-image: -moz-linear-gradient(top, #ffa500, #ffc355);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffa500), to(#ffc355));
+  background-image: -webkit-linear-gradient(top, #ffa500, #ffc355);
+  background-image: -o-linear-gradient(top, #ffa500, #ffc355);
+  background-image: linear-gradient(to bottom, #ffa500, #ffc355);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ffffa500', endColorstr = '#ffffc355', GradientType = 0);
   color: #fff;
   border: 1px solid #e5e5e5;
   padding: 10px;
@@ -173,6 +187,13 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
 
 .sc-recommendation-table tr#priority-low th { 
   background-color: #ff3;
+  background-image: -moz-linear-gradient(top, #ff0, #ffff80);
+  background-image: -webkit-gradient(linear, 0 0, 0 100% , from(#ff0), to(#ffff80));
+  background-image: -webkit-linear-gradient(top, #ff0, #ffff80);
+  background-image: -o-linear-gradient(top, #ff0, #ffff80);
+  background-image: linear-gradient(to bottom, #ff0, #ffff80);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff00', endColorstr = '#ffffff80', GradientType = 0)
   color: #555;
   border: 1px solid #e5e5e5;  
   padding: 10px;  
@@ -186,14 +207,20 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
   height: 18px;
 }
 
-.sc-recommendation-table .dashicons-arrow-up-alt2 {
-  color: #0074a2;
+.sc-recommendation-table .dashicons-arrow-up-alt2 { color: #0074a2; }
+
+.sc-recommendation-table .dashicons-arrow-down-alt2 { color: #0074a2; }
+
+.sc-recommendation-table tr td table { margin-top: 10px; }
+
+/* fix funky cursor */
+.js .postbox h3, 
+.js .widget .widget-top {
+  cursor: auto;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
 }
 
-.sc-recommendation-table .dashicons-arrow-down-alt2 {
- color: #0074a2;
-}
-
-.sc-recommendation-table tr td table {
-  margin-top: 10px;
-}
+.hide { display: none; }
