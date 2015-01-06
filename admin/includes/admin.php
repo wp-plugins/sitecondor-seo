@@ -135,6 +135,16 @@
 	}
 
 	/**
+	 * NOTE:     SiteCondor upgrade url
+	 *
+	 * @since    1.3.2
+	 */
+
+	function sc_upgrade_url() {
+		return "https://www.sitecondor.com/app/#/upgrade";
+	}
+	
+	/**
 	 * NOTE:     SiteCondor schedules url
 	 *
 	 * @since    1.0.0
@@ -272,6 +282,31 @@
 
 		return $response;		
 	}		
+
+	/**
+	 * NOTE:     Get SiteCondor user
+	 *
+	 * @since    1.3.2
+	 */
+
+	function sc_get_user($api_key) {
+	
+		$url = 'user';
+		$method = 'GET';
+		$data = array('apikey' => $api_key);
+
+		$res = sc_call_sitecondor_api($method, $url, $data);
+		$result = json_decode($res['result'], true);
+
+		if($res['status'] != '200') {
+	    return false;	// leave error reporting for view
+		} 	
+		
+		// if successful, user is the first element in decoded array
+    $user = array_shift($result);
+		return $user;
+
+	}
 
 	/**
 	 * NOTE:     Get SiteCondor jobs

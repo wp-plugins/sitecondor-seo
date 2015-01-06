@@ -123,13 +123,23 @@
               } else {
                 $res = sc_get_jobs( $options['apikey'] );
                 $jobs = $res['jobs'];
+                $user = sc_get_user( $options['apikey'] );
                 
-                if ( !is_array($jobs) ) {
+                if ( !is_array($jobs) || !$user ) {
                   echo "<p><strong>Sorry, we were unable to connect to SiteCondor. Please try again or contact support.</strong></p>";
-                } elseif ( count($jobs) < 1 ) {
-                  echo "<p>Sorry, you don't have any Reports yet.</p>";
                 } else {
-                  if ( count( array_filter( $jobs, "sc_is_job_ready_for_charting" ) ) > 1 ) {
+
+                  if($user['plan'] != 'wpfree' && $user['crawlsLeft'] > 0 && $user['resourcesLeft'] > 0) {
+                    echo '<form method="post" action="' . admin_url( 'admin-post.php' ) . '">';
+                    echo '<input type="hidden" name="action" value="create">';
+                    submit_button( 'Create New Report' ); 
+                    echo '</form>';
+                  }
+
+                  if ( count($jobs) < 1 ) {
+                    echo "<p>Sorry, you don't have any Reports yet.</p>";
+                  } else {
+                    if ( count( array_filter( $jobs, "sc_is_job_ready_for_charting" ) ) > 1 ) {
                     ?>
                     
                     <div id="legend" class="legend">
@@ -163,20 +173,32 @@
                       </span>
 
                       <br/>
-                      <div class="upgrade">
-                      A premium version of this plugin with more features and crawling credits is coming soon:<br/><br/>
-                      <strong>
-                      <a href="https://www.sitecondor.com/wordpress-upgrade/" target="_blank">Click here for an exclusive early bird special discount</a>
-                      </strong>
-                      </div>
+
+                      <?php
+                      
+                      if($user['plan'] == 'wpfree') {
+
+                      ?>
+
+                        <div class="upgrade">
+                          Get more Credits and Create New Reports at any time.<br/><br/>
+                          <strong>
+                          <a href="<?php echo sc_upgrade_url(); ?>" target="_blank">Upgrade Now</a>
+                          </strong>
+                        </div>
+
+                      <?php } ?>
+
                     </div>
 
                     <?php
                     echo '<div class="chart-wrap"><canvas id="my-chart"></canvas></div>';
-                  } else {
-                    echo "<p>This section will include charts when at least two weekly crawls have finished running. Click on <em>Overview</em> below to view results.</p>";
-                  } // array_filter($jobs)
-                } // is_array($jobs)
+                    } else {
+                      echo "<p>This section will include charts when at least two Reports have finished running. Click on <em>Overview</em> below to view results.</p>";
+                    } // array_filter($jobs)
+                  } // count($jobs)
+
+                } // is_array($jobs) || $user
 
               } // !$options['apikey'] || !$options['job_id'] || !$options['schedule_id']
             ?>    
