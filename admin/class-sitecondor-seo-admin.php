@@ -6,7 +6,7 @@
  * @author    Sebastián Brocher <seb@sitecondor.com> and Judd Lyon <judd@sitecondor.com>
  * @license   GPL-2.0+
  * @link      https://www.sitecondor.com/wordpress-plugin
- * @copyright 2014 Noctual, LLC
+ * @copyright 2015 Noctual, LLC
  */
 
 /**
@@ -75,6 +75,9 @@ class SiteCondor_SEO_Admin {
 	  add_action( 'admin_init', array($this, 'register_sitecondor_settings_cb') );
 		add_action( 'admin_notices', array($this, 'sitecondor_notices_cb') );
 
+		// Add form post action to process create new job
+		add_action( 'admin_post_create', array($this, 'sitecondor_create_job_cb') );
+
 	}
 
 	/**
@@ -119,6 +122,7 @@ class SiteCondor_SEO_Admin {
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
 			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), SiteCondor_SEO::VERSION );
+			wp_enqueue_style( $this->plugin_slug .'-admin-tooltips', plugins_url( 'assets/css/tooltips.css', __FILE__ ), array(), SiteCondor_SEO::VERSION );			
 		}
 
 	}
@@ -139,7 +143,7 @@ class SiteCondor_SEO_Admin {
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
 			wp_enqueue_script( $this->plugin_slug . '-admin-chart-script', plugins_url( 'assets/js/chart.min.js', __FILE__ ), array(), SiteCondor_SEO::VERSION );
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), SiteCondor_SEO::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip' ), SiteCondor_SEO::VERSION );
 		}
 
 	}
@@ -208,12 +212,46 @@ class SiteCondor_SEO_Admin {
 	}
 
 	/**
+	 * NOTE:     Creates a job per request
+	 *
+	 * @since    1.3.2
+	 */	
+	public function sitecondor_create_job_cb() {
+
+		$options = get_option( 'sitecondor_options' );
+
+		// Create job
+		$site_url = get_option( 'siteurl' );
+		$job_res = sc_create_job( $options['apikey'], $site_url );
+
+		if ( $job_res ) { 
+			$msg = 'success';
+		} else {
+			$msg = 'failure';
+		}
+	
+    $redirect_to_url = admin_url('?page=sitecondor-seo&tab=reports&msg=' . $msg);
+    wp_safe_redirect( $redirect_to_url );
+    exit;
+	}
+
+	/**
 	 * NOTE:     Displays error setting page error messages
 	 *
 	 * @since    1.0.0
 	 */	
 	public function sitecondor_notices_cb() {
+		// for regular, wordpress options update error messages
 		settings_errors( 'sitecondor_options' );
+
+		// 
+		if(isset($_GET['msg'])) {
+      if('success' === $_GET['msg']) {
+      	echo '<div class="updated"><p>Success! Your new report will be processed soon.</p></div>';
+      } else {
+      	echo '<div class="error"><p>Sorry, we were unable to create your report, please try again.</p></div>';
+      }
+    }
 	}
 
 	/**

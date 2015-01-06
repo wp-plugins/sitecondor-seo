@@ -1,7 +1,7 @@
 <?php
 
 	/**
-	 * NOTE:     Returns true is job is completed, false otherwise
+	 * NOTE:     Returns true if job is completed, false otherwise
 	 *
 	 * @since    1.0.0
 	 */
@@ -13,6 +13,16 @@
 			$job['status'] != 'failed'
 		;
 	}
+
+	/**
+	 * NOTE:     Alias for sc_is_job_ready_for_charting for now
+	 *
+	 * @since    1.3.0
+	 */
+
+	function sc_is_job_successfully_completed( $job ) {
+		return sc_is_job_ready_for_charting($job);
+	}	
 
 	/**
 	 * NOTE:     SiteCondor resources all url
@@ -125,6 +135,16 @@
 	}
 
 	/**
+	 * NOTE:     SiteCondor upgrade url
+	 *
+	 * @since    1.3.2
+	 */
+
+	function sc_upgrade_url() {
+		return "https://www.sitecondor.com/app/#/upgrade";
+	}
+	
+	/**
 	 * NOTE:     SiteCondor schedules url
 	 *
 	 * @since    1.0.0
@@ -225,7 +245,7 @@
 			# if using proxy, you should also provide proxyHostname and proxyPort attributes
 			'useProxy' => false,
 			# limit the maximum # of resources to fetch for the job
-			'maxResources' => 75	
+			'maxResources' => ""
 		);
 
 		$api_call = sc_call_sitecondor_api('POST', $url, $data);
@@ -264,6 +284,31 @@
 	}		
 
 	/**
+	 * NOTE:     Get SiteCondor user
+	 *
+	 * @since    1.3.2
+	 */
+
+	function sc_get_user($api_key) {
+	
+		$url = 'user';
+		$method = 'GET';
+		$data = array('apikey' => $api_key);
+
+		$res = sc_call_sitecondor_api($method, $url, $data);
+		$result = json_decode($res['result'], true);
+
+		if($res['status'] != '200') {
+	    return false;	// leave error reporting for view
+		} 	
+		
+		// if successful, user is the first element in decoded array
+    $user = array_shift($result);
+		return $user;
+
+	}
+
+	/**
 	 * NOTE:     Get SiteCondor jobs
 	 *
 	 * @since    1.0.0
@@ -287,6 +332,29 @@
 	}
 
 	/**
+	 * NOTE:     Get SiteCondor job recommendations
+	 *
+	 * @since    1.3.0
+	 */
+
+	function sc_get_recommendations($api_key, $job_id) {
+	
+		$url = 'jobs/' . $job_id . '/recommendations';
+		$method = 'GET';
+		$data = array('apikey' => $api_key);
+
+		$res = sc_call_sitecondor_api($method, $url, $data);
+		$result = json_decode($res['result'], true);
+
+		if($res['status'] != '200') {
+	    return false;	// leave error reporting for view
+		} 	
+		
+		return $result;
+
+	}
+
+	/**
 	 * Calls SiteCondor API
 	 * Method: POST, PUT, GET etc
 	 * Data: array("param" => "value") ==> index.php?param=value
@@ -295,21 +363,28 @@
 	 */	
 	function sc_call_sitecondor_api( $method, $url, $data = false ) {
 
-		// $base_url = 'http://0.0.0.0:3000/api/v1/';
-    $base_url = 'https://www.sitecondor.com/api/v1/';
+		$dev = false;
+
+		if($dev) {
+			$base_url = 'http://0.0.0.0:3000/api/v1/';			
+    	$sslverify = false;
+    } else {
+    	$base_url = 'https://www.sitecondor.com/api/v1/';
+    	$sslverify = true;
+    }
 
   	$args = array(
 			'timeout' => 15,
 			'redirection' => 5,
 			'httpversion' => '1.0',
 			'blocking' => true,
-			'user-agent'  => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ),
+			'user-agent'  => 'WordPress/; ' . get_bloginfo( 'url' ),
 			'headers' => array(),
 			'body' => $data,
 			'cookies' => array(),
 	    'compress'    => false,
 	    'decompress'  => true,
-	    'sslverify'   => true,
+	    'sslverify'   => $sslverify,
 	    'stream'      => false,
 	    'filename'    => null					
 		);
