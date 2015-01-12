@@ -5,13 +5,13 @@
  * @author    Sebastián Brocher <seb@sitecondor.com> and Judd Lyon <judd@sitecondor.com>
  * @license   GPL-2.0+
  * @link      https://www.sitecondor.com/wordpress-plugin
- * @copyright 2014 Noctual, LLC
+ * @copyright 2015 Noctual, LLC
  *
  * @wordpress-plugin
  * Plugin Name:       SiteCondor SEO
  * Plugin URI:        https://www.sitecondor.com/wordpress-plugin
  * Description:       SiteCondor SEO plugin
- * Version:           1.0.2
+ * Version:           1.3.3
  * Author:            Sebastián Brocher and Judd Lyon
  * Author URI:        http://blog.sitecondor.com
  * Text Domain:       sitecondor-seo

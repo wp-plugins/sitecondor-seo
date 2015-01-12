@@ -6,7 +6,7 @@
  * @author    Sebastián Brocher <seb@sitecondor.com> and Judd Lyon <judd@sitecondor.com>
  * @license   GPL-2.0+
  * @link      https://www.sitecondor.com/wordpress-plugin
- * @copyright 2014 Noctual, LLC
+ * @copyright 2015 Noctual, LLC
  */
 
 // If uninstall not called from WordPress, then exit

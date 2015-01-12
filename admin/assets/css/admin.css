@@ -11,14 +11,12 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
 }
 
 .form-table th { 
-  width: auto; 
+  width: auto;  
   padding: 5px 15px 0 0;
   margin-bottom: 12px;
 }
 
-.form-table td { 
-  padding: 0 0 12px 0; 
-}
+.form-table td { padding: 0 0 12px 0; }
 
 .form-table td input { width: 220px; }
 
@@ -38,17 +36,27 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
 }
 
 .widefat.sc-table tr th {
-  font-size: 12px;    
+  font-size: 13px;    
   background-color: #EEE8E0;
   border: 1px solid #fff;  
   padding: 5px;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.widefat.sc-table tr td a.inline-tooltip {
+  border-bottom: none;
+  font-weight: normal;
 }
 
 .widefat.sc-table tr td {
-  font-size: 12px;  
+  font-size: 13px;  
   border: 1px solid #e5e5e5;
   padding: 5px;  
+}
+
+.widefat.sc-table tr td a {
+  font-weight: 700;
+  border-bottom: 1px solid;
 }
 
 .sc-settings-table { border: 1px solid #e5e5e5; }
@@ -61,6 +69,8 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
 }
 
 .sc-settings-table tr th { border-right: 1px solid #e5e5e5; }
+
+.sc-settings-table a.inline-tooltip .dashicons { text-decoration: none; }
 
 .digit { text-align: right; }
 
@@ -84,4 +94,169 @@ h2.nav-tab-wrapper { margin-bottom: 15px; }
   padding: 5px 10px;
   font-weight: 600;
   border-bottom: 1px solid;
+}
+
+.sc-table .dashicons {
+  margin-top: 0;
+  padding-left: 3px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.sc-table .trend-icon { display: inline-block; }
+
+.sc-table .trend-icon.trend-green,
+.sc-table .trend-icon.trend-green .dashicons { 
+  color: green; 
+}
+
+.sc-table .trend-icon.trend-red,
+.sc-table .trend-icon.trend-red .dashicons { 
+  color: red; 
+}
+
+.sc-table .dashicons-arrow-up { margin-top: 4px; }
+
+.sc-table .dashicons-arrow-down { margin-top: 3px; }
+
+.sc-table .trend-icon .dashicons {
+  font-size: 14px;
+  width: 10px;
+  height: 10px;
+}
+
+.sc-table .trend-icon { font-size: 10px; }
+
+.sc-recommendation-table {
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.sc-recommendation-table h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+.sc-recommendation-table td { 
+  width: 50%; 
+  vertical-align: top;
+}
+
+.widefat.sc-table tr td .url-list a { border: none; }
+
+.widefat.sc-table .url-list li { 
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0;
+  padding: 3px 0;
+}
+
+.sc-recommendation-table tr#priority-critical th {
+  background-color: #f22;
+  background-image: -moz-linear-gradient(top, #f00, #f55);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f00), to(#f55));
+  background-image: -webkit-linear-gradient(top, #f00, #f55);
+  background-image: -o-linear-gradient(top, #f00, #f55);
+  background-image: linear-gradient(to bottom, #f00, #f55);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ffff0000', endColorstr = '#ffff5555', GradientType = 0);  
+  color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.sc-recommendation-table tr#priority-medium th {
+  background-color: #ffb122;
+  background-image: -moz-linear-gradient(top, #ffa500, #ffc355);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffa500), to(#ffc355));
+  background-image: -webkit-linear-gradient(top, #ffa500, #ffc355);
+  background-image: -o-linear-gradient(top, #ffa500, #ffc355);
+  background-image: linear-gradient(to bottom, #ffa500, #ffc355);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ffffa500', endColorstr = '#ffffc355', GradientType = 0);
+  color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.sc-recommendation-table tr#priority-low th { 
+  background-color: #ff3;
+  background-image: -moz-linear-gradient(top, #ff0, #ffff80);
+  background-image: -webkit-gradient(linear, 0 0, 0 100% , from(#ff0), to(#ffff80));
+  background-image: -webkit-linear-gradient(top, #ff0, #ffff80);
+  background-image: -o-linear-gradient(top, #ff0, #ffff80);
+  background-image: linear-gradient(to bottom, #ff0, #ffff80);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff00', endColorstr = '#ffffff80', GradientType = 0)
+  color: #555;
+  border: 1px solid #e5e5e5;  
+  padding: 10px;  
+}
+
+.sc-recommendation-table .dashicons {
+  margin-top: 0;
+  padding-left: 3px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.sc-recommendation-table .dashicons-arrow-up-alt2 { color: #0074a2; }
+
+.sc-recommendation-table .dashicons-arrow-down-alt2 { color: #0074a2; }
+
+.sc-recommendation-table tr td table { margin-top: 10px; }
+
+/* fix funky cursor */
+.js .postbox h3, 
+.js .widget .widget-top {
+  cursor: auto;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.hide { display: none; }
+
+
+#poststuff { padding-top: 0; }
+
+.upgrade-bar {
+  padding: 5px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: right;
+  text-transform: uppercase;
+  background: #caebff; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #caebff 0%, #009cff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#caebff), color-stop(100%,#009cff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #caebff 0%,#009cff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #caebff 0%,#009cff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #caebff 0%,#009cff 100%); /* IE10+ */
+  background: linear-gradient(135deg,  #caebff 0%,#009cff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#caebff', endColorstr='#009cff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.upgrade-bar span { 
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  color: #fff;
+  font-weight: 500;  
+  font-style: italic;
+}
+
+.upgrade-bar .button-secondary,
+.upgrade-bar .button-secondary:visited {
+  background: #FFA019;
+  border: 1px solid #7dcdff;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.upgrade-bar .button-secondary:hover {
+  background: #006DB2;
+  color: #fff;  
 }
