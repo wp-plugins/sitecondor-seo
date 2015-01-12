@@ -65,15 +65,26 @@
               if ( !$options['apikey'] || !$options['job_id'] || !$options['schedule_id'] ) {
                 echo "<p>Your SiteCondor account isn't fully set up yet, please check your <a href='?page=sitecondor-seo&tab=settings'>Settings</a>.</p>";
               } else {
+                $user = sc_get_user( $options['apikey'] );                
                 $res = sc_get_jobs( $options['apikey'] );
                 $jobs = $res['jobs'];
                 
-                if ( !is_array($jobs) ) {
+                if ( !is_array($jobs) || !$user ) {
                   echo "<p><strong>Sorry, we were unable to connect to SiteCondor. Please try again or contact support.</strong></p>";
                 } else {
 
                   $successfully_completed_jobs = array_filter( $jobs, "sc_is_job_successfully_completed" );
                     
+                  if ( $user['plan'] == 'wpfree' ) {                  
+                  ?>
+
+                    <div class="upgrade-bar">
+                      <span>Upgrade and create Reports whenever you'd like.</span><a href="<?php echo sc_upgrade_url('recommendations'); ?>" target="_blank" class="button-secondary">Upgrade!</a>
+                    </div><!-- /.upgrade-bar -->
+
+                  <?php
+                  }
+
                   if ( count( $successfully_completed_jobs ) < 1 ) {
                     echo "<p>Sorry, you don't have any recommendations yet.</p>";
                   } else {                  
@@ -85,7 +96,8 @@
                       echo "<p>You don't have any Recommendations at this time.</p>";
                     } else {
                       echo "<p>The recommendations below are based on your report from <strong>" . substr( $job['createdAt'], 5, 2) . "/" . substr( $job['createdAt'], 8, 2 ) . "/" . substr( $job['createdAt'], 2, 2 ) . "</strong>.</p>";        
-            ?>
+            
+                    ?>
 
                 <table class="widefat sc-table sc-recommendation-table">
                   <?php 

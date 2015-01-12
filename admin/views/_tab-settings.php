@@ -39,7 +39,7 @@
                     echo "<p><strong>Sorry, we were unable to connect to SiteCondor. Please try again or contact support.</strong></p>";
                   } else {
                     ?>
-                    <table class="form-table sc-settings-table">
+                    <table class="form-table sc-table sc-settings-table">
                       <tr>
                         <th>Email</th>
                         <td><?php echo $options['email']; ?></td>
@@ -50,7 +50,12 @@
                           echo strtoupper($user['plan']);
                           if($user['plan'] == 'wpfree') {
                             ?>
-                              - <strong><a target="_blank" href="<?php echo sc_upgrade_url(); ?>">Upgrade</a></strong>
+                              - <strong>
+                                <a target="_blank" href="<?php echo sc_upgrade_url('settings'); ?>">Upgrade</a>
+                                <a class="inline-tooltip" title="Get more Credits and create Reports anytime." href="#">
+                                <span data-code="f348" class="dashicons dashicons-info"></span>
+                                </a>
+                              </strong>
                             <?php
                           }
                         ?>

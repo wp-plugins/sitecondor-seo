@@ -396,7 +396,7 @@ class SiteCondor_SEO_Admin {
 		}
 
 		if ( isset( $account_success ) && isset( $job_success ) && isset( $sched_success ) ) {
-			$notice_markup = "<p>Success! Your account has been created, along with a scheduled job.</p>";
+			$notice_markup = "<p>Success! Your first weekly Report and Recommendations will be available shortly.</p>";
 	    add_settings_error( 'sitecondor_options', 'sc_account_job_sched_success', $notice_markup, 'updated' );			
 		} 
 

@@ -57,7 +57,7 @@
     // if there has been no change between previous and current count, display a dash
     if($previous_count == $current_count) {
       // no change - display a dash
-      return $result . "<br/><div class='trend-icon'><span class='dashicons dashicons-minus'></span></div>";  
+      return $result . "<br><div class='trend-icon'><span class='dashicons dashicons-minus'></span></div>";  
     }
 
     // we have a change between previous and current count, display change percent and color indicator
@@ -102,7 +102,7 @@
     $absolute_percent = abs($percent);
 
     // return the whole enchilada
-    return $result . "<br/><div class='trend-icon " . $color_class . "'><span class='dashicons ". $arrow_class . "'></span> " . $absolute_percent . "%</div>";    
+    return $result . "<br><div class='trend-icon " . $color_class . "'><span class='dashicons ". $arrow_class . "'></span> " . $absolute_percent . "%</div>";    
   }
 ?>
 
@@ -129,10 +129,20 @@
                   echo "<p><strong>Sorry, we were unable to connect to SiteCondor. Please try again or contact support.</strong></p>";
                 } else {
 
+                  if ( $user['plan'] == 'wpfree' ) {                  
+                  ?>
+                  
+                    <div class="upgrade-bar">
+                      <span>Need more credits or to create reports anytime?</span> <a href="<?php echo sc_upgrade_url('reports'); ?>" target="_blank" class="button-secondary">Upgrade!</a>
+                    </div><!-- /.upgrade-bar -->
+                  
+                  <?php
+                  }
+
                   if($user['plan'] != 'wpfree' && $user['crawlsLeft'] > 0 && $user['resourcesLeft'] > 0) {
                     echo '<form method="post" action="' . admin_url( 'admin-post.php' ) . '">';
                     echo '<input type="hidden" name="action" value="create">';
-                    submit_button( 'Create New Report' ); 
+                    echo '<input type="submit" value="Create New Report" class="button-primary">';
                     echo '</form>';
                   }
 
@@ -171,24 +181,6 @@
                       <span class="title" style="color: rgb(204, 102, 102); background-color: rgba(204, 102, 102, 0.2);">
                         <input class="refresh-chart" type="checkbox" id="missing-image-alt" checked>Missing Image Alternate Text</input>
                       </span>
-
-                      <br/>
-
-                      <?php
-                      
-                      if($user['plan'] == 'wpfree') {
-
-                      ?>
-
-                        <div class="upgrade">
-                          Get more Credits and Create New Reports at any time.<br/><br/>
-                          <strong>
-                          <a href="<?php echo sc_upgrade_url(); ?>" target="_blank">Upgrade Now</a>
-                          </strong>
-                        </div>
-
-                      <?php } ?>
-
                     </div>
 
                     <?php

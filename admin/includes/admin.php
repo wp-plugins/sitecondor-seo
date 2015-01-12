@@ -25,6 +25,19 @@
 	}	
 
 	/**
+	 * NOTE:     Returns true if job is completed and finished early or reached max resources, false otherwise
+	 *
+	 * @since    1.3.3
+	 */
+
+	function sc_is_job_successfully_completed_early( $job ) {
+		return 
+			$job['status'] == 'finished early' ||
+			$job['status'] == 'reached max resources' 
+		;	
+	}		
+
+	/**
 	 * NOTE:     SiteCondor resources all url
 	 *
 	 * @since    1.0.0
@@ -140,8 +153,8 @@
 	 * @since    1.3.2
 	 */
 
-	function sc_upgrade_url() {
-		return "https://www.sitecondor.com/app/#/upgrade";
+	function sc_upgrade_url($source) {
+		return "https://www.sitecondor.com/app/#/upgrade?source=" . $source;
 	}
 	
 	/**
